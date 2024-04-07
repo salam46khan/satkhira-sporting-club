@@ -4,12 +4,13 @@ import logo from '@/assets/sport_logo.png'
 import { LuUser2 } from "react-icons/lu";
 import { HiMiniBars3CenterLeft } from "react-icons/hi2";
 import user from '@/assets/user.jpg'
+import { MdOutlineLogout } from 'react-icons/md';
 
 const Navbar = () => {
-    const session = false
+    const session = true
     const isAdmin = true
     return (
-        <div className='bg-blue-800/70 fixed top-0 left-0 w-full text-white'>
+        <div className='bg-blue-800 fixed top-0 left-0 w-full text-white z-50'>
             <div className="navbar px-5">
                 <div className="navbar-start">
                     <div className="dropdown ">
@@ -64,7 +65,10 @@ const Navbar = () => {
                                                 : ""
                                         }
                                         <li>
-                                            <button>Log out</button>
+                                            <button className='flex justify-between text-red-400'>
+                                                Log out
+                                                <MdOutlineLogout className=''/>
+                                            </button>
                                         </li>
                                     </ul>
                                 </div>
