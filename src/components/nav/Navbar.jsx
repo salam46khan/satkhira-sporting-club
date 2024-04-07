@@ -6,7 +6,7 @@ import { HiMiniBars3CenterLeft } from "react-icons/hi2";
 import user from '@/assets/user.jpg'
 
 const Navbar = () => {
-    const session = true
+    const session = false
     const isAdmin = true
     return (
         <div className='bg-blue-800/70 fixed top-0 left-0 w-full text-white'>

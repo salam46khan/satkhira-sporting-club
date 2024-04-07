@@ -9,7 +9,7 @@ const Course = () => {
             <div className='py-4 text-center'>
                 <p className='text-2xl font-bold text-pink-400'>Chorse name and short title about course</p>
             </div>
-            <div className='flex justify-between shadow-inner p-2 shadow-black/40 rounded-full'>
+            <div className='flex justify-between shadow-inner p-2 px-4 shadow-white/50 rounded-full'>
                 <p>Batch: 1</p>
                 <p>Durations: 6 month</p>
             </div>
