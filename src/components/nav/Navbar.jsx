@@ -5,9 +5,13 @@ import { LuUser2 } from "react-icons/lu";
 import { HiMiniBars3CenterLeft } from "react-icons/hi2";
 import user from '@/assets/user.jpg'
 import { MdOutlineLogout } from 'react-icons/md';
+import { handleLogout } from '@/lib/actions';
+import { auth } from '@/lib/auth';
 
-const Navbar = () => {
-    const session = true
+const Navbar = async () => {
+    
+    const session = await auth()
+    console.log(session);
     const isAdmin = true
     return (
         <div className='bg-blue-800 fixed top-0 left-0 w-full text-white z-50'>
@@ -51,7 +55,7 @@ const Navbar = () => {
                             <>
                                 <div className="dropdown relative">
                                     <div tabIndex={1} role="button" className="btn hover:bg-white/20 btn-ghost btn-circle overflow-hidden">
-                                        <Image src={user} alt='' height={60} width={60} />
+                                        <Image src={session? session?.user?.image : user} alt='' height={60} width={60} />
                                     </div>
                                     <ul tabIndex={1} className="menu menu-sm dropdown-content mt-3 absolute right-0 z-[1] p-2 shadow bg-base-100 rounded-box w-32 bg-blue-800/80">
                                         <li>
@@ -60,15 +64,18 @@ const Navbar = () => {
                                         {
                                             isAdmin ?
                                                 <li>
-                                                    <Link href={'/admin'}>Admin</Link>
+                                                    <Link href={'/dashboard/users'}>Dashboard</Link>
                                                 </li>
                                                 : ""
                                         }
                                         <li>
-                                            <button className='flex justify-between text-red-400'>
-                                                Log out
-                                                <MdOutlineLogout className=''/>
-                                            </button>
+                                            <form action={handleLogout}>
+                                                <button className='flex justify-between text-red-400'>
+                                                    Log out
+                                                    <MdOutlineLogout className='' />
+                                                </button>
+                                            </form>
+
                                         </li>
                                     </ul>
                                 </div>

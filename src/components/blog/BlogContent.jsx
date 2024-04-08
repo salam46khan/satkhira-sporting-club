@@ -1,16 +1,16 @@
-import { getBlog } from "@/lib/data";
+// import { getBlog } from "@/lib/data";
 import Blog from "./Blog";
 
-// const getBlog = async () => {
-//     const res = await fetch ('https://jsonplaceholder.typicode.com/posts', {
-//         cache: 'no-store'
-//     })
+const getBlog = async () => {
+    const res = await fetch ('http://localhost:3000/api/blog', {
+        cache: 'no-store'
+    })
 
-//     if(!res.ok){
-//         throw new Error('somthing wrong')
-//     }
-//     return res.json()
-// }
+    if(!res.ok){
+        throw new Error('somthing wrong')
+    }
+    return res.json()
+}
 
 const BlogContent = async() => {
     const blog = await getBlog()
@@ -23,7 +23,7 @@ const BlogContent = async() => {
             
             <div className="mt-8 flex justify-center gap-4 flex-wrap">
                 {
-                    blog?.map(blog => <Blog key={blog.id} blog={blog}></Blog>)
+                    blog?.map(blog => <Blog key={blog._id} blog={blog}></Blog>)
                 }
                 {/* <Blog />
                 <Blog />

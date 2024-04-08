@@ -1,8 +1,16 @@
 import BlogDetail from "@/components/blog/BlogDetail";
-import { getSingleBlog } from "@/lib/data";
+// import { getSingleBlog } from "@/lib/data";
 
 
-
+const getSingleBlog = async (id) => {
+    const res = await fetch (`http://localhost:3000/api/blog/${id}`, {
+        cache: 'no-store'
+    })
+    if(!res.ok){
+        throw new Error('somthing wrong')
+    }
+    return res.json()
+}
 
 const BlogDetails = async ({ params }) => {
     const {id} = params;

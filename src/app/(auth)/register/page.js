@@ -1,13 +1,13 @@
-import LoginContent from "@/components/auth/LoginContent";
+import RegisterContent from "@/components/auth/RegisterContent";
 
-const LoginPage = () => {
+const RegisterPage = () => {
     return (
         <div className="px-3 py-5 min-h-screen container mx-auto">
             <div className="pt-16 flex justify-center items-center">
-               <LoginContent />
+               <RegisterContent />
             </div>
         </div>
     );
 };
 
-export default LoginPage;
+export default RegisterPage;
