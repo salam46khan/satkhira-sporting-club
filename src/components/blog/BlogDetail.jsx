@@ -6,15 +6,15 @@ import { IoArrowBack } from 'react-icons/io5';
 
 const BlogDetail = ({singleBlog}) => {
     // console.log(singleBlog);
-    const {title, body} = singleBlog;
+    const {title, body, image, createdAt} = singleBlog;
     return (
         <div>
             <div className="mt-5">
                 <div className="w-full max-w-3xl p-3 mx-auto">
-                    <Image src={Cri} width={400} height={300} alt='blog phot' className='w-full' />
+                    <Image src={image} width={400} height={300} alt='blog phot' className='w-full' />
                     <div className='py-3'>
                         <p className='text-3xl text-pink-400 font-bold'>{title}</p>
-                        <p className=''>date </p>
+                        <p className=''>{createdAt.slice(0,10)} </p>
                         <div className='pt-4'>
                             <p>
                                 {body}

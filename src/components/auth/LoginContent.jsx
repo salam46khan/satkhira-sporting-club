@@ -1,6 +1,8 @@
 import { MdOutlineAlternateEmail, MdVpnKey } from "react-icons/md";
 import GithubLogin from "./GithubLogin";
 import Link from 'next/link'
+import { Login } from "@/lib/actions";
+
 
 const LoginContent = () => {
     return (
@@ -11,7 +13,7 @@ const LoginContent = () => {
             <div>
                 <GithubLogin />
                 <div className="divider">OR</div>
-                <form className="">
+                <form  action={Login}>
                     <div className=" shadow-inner shadow-white/70 rounded-full overflow-hidden py-2 my-4 flex items-center">
                         <MdOutlineAlternateEmail className=" w-10" />
                         <input
@@ -20,6 +22,7 @@ const LoginContent = () => {
                             required
                             placeholder="Enter your email"
                             className="flex-1 bg-inherit focus:outline-none"
+                            name="email"
                         />
                     </div>
                     <div className=" shadow-inner shadow-white/70 rounded-full overflow-hidden py-2 my-4 flex items-center">
@@ -30,6 +33,7 @@ const LoginContent = () => {
                             required
                             placeholder="Enter your password"
                             className="flex-1 bg-inherit focus:outline-none"
+                            name="password"
                         />
                     </div>
                     <div>

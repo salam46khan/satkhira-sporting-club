@@ -2,6 +2,7 @@ import { MdOutlineAlternateEmail, MdVpnKey } from "react-icons/md";
 import GithubLogin from "./GithubLogin";
 import Link from 'next/link'
 import { FaUserAlt } from "react-icons/fa";
+import { handleRegister } from "@/lib/actions";
 
 const RegisterContent = () => {
     return (
@@ -12,7 +13,7 @@ const RegisterContent = () => {
             <div>
                 <GithubLogin />
                 <div className="divider">OR</div>
-                <form className="">
+                <form action={handleRegister}>
                     <div className=" shadow-inner shadow-white/70 rounded-full overflow-hidden py-2 my-4 flex items-center">
                         <FaUserAlt className=" w-10" />
                         <input
@@ -21,6 +22,7 @@ const RegisterContent = () => {
                             required
                             placeholder="Enter your name"
                             className="flex-1 bg-inherit focus:outline-none"
+                            name="name"
                         />
                     </div>
                     <div className=" shadow-inner shadow-white/70 rounded-full overflow-hidden py-2 my-4 flex items-center">
@@ -31,6 +33,7 @@ const RegisterContent = () => {
                             required
                             placeholder="Enter your email"
                             className="flex-1 bg-inherit focus:outline-none"
+                            name="email"
                         />
                     </div>
                     <div className=" shadow-inner shadow-white/70 rounded-full overflow-hidden py-2 my-4 flex items-center">
@@ -41,6 +44,7 @@ const RegisterContent = () => {
                             required
                             placeholder="Enter your password"
                             className="flex-1 bg-inherit focus:outline-none"
+                            name="password"
                         />
                     </div>
                     <div>

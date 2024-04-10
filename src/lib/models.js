@@ -4,6 +4,9 @@ const blogSchema = new mongoose.Schema({
     title : {
         type: String
     },
+    image: {
+        type: String,
+    },
     body : {
         type : String
     }
@@ -34,6 +37,30 @@ const userSchema = new mongoose.Schema({
     timestamps: true
 })
 
+const courseSchema = new mongoose.Schema({
+    course : {
+        type : String,
+    },
+    batch : {
+        type : String,
+    },
+    duration : {
+        type : String
+    },
+    details : {
+        type: String
+    },
+    level : {
+        type: String
+    },
+    image: {
+        type: String
+    }
+},{
+    timestamps: true
+})
 
-export const Blog = mongoose?.models.Blog || mongoose.model('Blog', blogSchema)
-export const User = mongoose?.models.User || mongoose.model('User', userSchema)
+
+export const Blog = mongoose?.models?.Blog || mongoose.model('Blog', blogSchema)
+export const User = mongoose?.models?.User || mongoose.model('User', userSchema)
+export const Course = mongoose?.models?.Course || mongoose.model('Course', courseSchema)

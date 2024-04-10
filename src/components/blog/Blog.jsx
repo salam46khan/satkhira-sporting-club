@@ -4,10 +4,10 @@ import Cri from '@/assets/cric_practice.png'
 import { IoArrowForward } from 'react-icons/io5';
 
 const Blog = ({blog}) => {
-    const {title, body, _id} =blog;
+    const {title, body, _id, image} =blog;
     return (
         <div className="w-full max-w-[300px] bg-white/20 hover:bg-white/30 duration-300 overflow-hidden rounded-md ">
-            <Image src={Cri} alt='course thambnail' width={300} height={200} className='w-full h-auto' />
+            <Image src={image} alt='course thambnail' width={300} height={200} className='w-full h-auto' />
             <div className='px-4 pt-1 pb-4'>
                 <p className='text-pink-400'>date </p>
                 <p className='text-2xl text-white font-bold'>{title.length>30 ? title.slice(0,28)+'..': title}</p>

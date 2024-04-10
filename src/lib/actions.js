@@ -1,20 +1,25 @@
+'use server'
+
 import { signIn, signOut } from "./auth"
-import { User } from "./models"
+import { Course, User } from "./models"
 import { connectDb } from "./utils"
+import bcrypt from 'bcryptjs'
 
 
 export const handleGithubLogin = async () => {
-    'use server'
+    // 'use server'
     await signIn('github')
 }
 export const handleLogout = async () => {
-    'use server'
+    // 'use server'
     await signOut()
 }
 
 export const handleRegister = async (formData) => {
+    // 'use server'
     const {name, email, password, image} = Object.fromEntries(formData)
 
+    console.log(name, email, password);
     try{
         connectDb()
         const user = await User.findOne({email})
@@ -22,15 +27,37 @@ export const handleRegister = async (formData) => {
             console.log('user already exsit');
             return 'user already exsit'
         }
+        const salt = await bcrypt.genSalt(10);
+        const hashPassword = await bcrypt.hash(password, salt)
+
         const newUser = new User({
             name,
             email,
-            password,
+            password: hashPassword,
             image
         })
+
+        await newUser.save()
+        console.log('save to database');
     }
     catch(err){
         console.log(err);
         return {error : 'somthing wrong for post user data'}
     }
 }
+
+export const Login = async (formData) => {
+    // 'use server'
+    const {email, password} = Object.fromEntries(formData)
+
+    console.log(email, password);
+
+    try{
+        await signIn('credentials', {email, password})
+    }
+    catch(err){
+        console.log(err);
+        return {error : 'somthing wrong for post user data'}
+    }
+}
+
