@@ -27,3 +27,36 @@ export const getSingleBlog = async (id) => {
     }
     return res.json()
 }
+
+
+
+export const getCourse = async () => {
+    const res = await fetch ('http://localhost:3000/api/course', {
+        cache: 'no-store'
+    })
+
+    if(!res.ok){
+        throw new Error('somthing wrong')
+    }
+    return res.json()
+}
+
+// export const getSingleCourse = async (id) => {
+//     const res = await fetch (`http://localhost:3000/api/course/${id}`, {
+//         cache: 'no-store'
+//     })
+//     if(!res.ok){
+//         throw new Error('somthing wrong')
+//     }
+//     return res.json()
+// }
+
+export const getSingleCourse = async (id) => {
+    const res = await fetch (`http://localhost:3000/api/course/${id}`, {
+        cache: 'no-store'
+    })
+    if(!res.ok){
+        throw new Error('somthing wrong')
+    }
+    return res.json()
+}

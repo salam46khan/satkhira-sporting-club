@@ -1,12 +1,29 @@
-
+'use client'
 import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import AddBlogBtn from "./AddBlogBtn";
 import BlogDialog from "./BlogDialog";
 import Image from 'next/image'
+import Link from 'next/link'
+// import BlogUpdate from "./BlogUpdate";
 
 const DashboardBlog = ({ blogs }) => {
     // console.log(blogs);
+    const handleDelete = async (id) => {
+        try {
+            const response = await fetch(`/api/blog/${id}`, {
+                method: 'DELETE',
+            });
+            if (response.ok) {
+                // router.push('/'); //
+            } else {
+                throw new Error('Deletion failed');
+            }
+        } catch (error) {
+            console.error('Error deleting post:', error);
+            
+        }
+    };
 
     return (
         <div className="">
@@ -34,14 +51,20 @@ const DashboardBlog = ({ blogs }) => {
                             blogs?.map(blog => (
                                 <tr key={blog._id}>
                                     <th>
-                                        <Image height={45} width={70} src={blog?.image} alt="blog photo"/>
+                                        <Image height={45} width={70} src={blog?.image} alt="blog photo" />
                                     </th>
                                     <td>{blog?.title}</td>
                                     <td>{blog?.body?.length > 60 ? blog?.body.slice(0, 60) + '...' : blog?.body}</td>
                                     <td>
                                         <div className="flex items-center gap-5">
-                                            <button><FaRegEdit className="text-xl text-green-400" /></button>
-                                            <button><RiDeleteBin6Line className="text-xl text-red-400" /></button>
+
+
+
+                                            <Link href={`/dashboard/blogs/${blog._id}`}>
+                                                <button><FaRegEdit className="text-xl text-green-400" /></button>
+                                            </Link>
+
+                                            <button onClick={() => handleDelete(blog?._id)}><RiDeleteBin6Line className="text-xl text-red-400" /></button>
 
                                         </div>
                                     </td>
@@ -56,6 +79,7 @@ const DashboardBlog = ({ blogs }) => {
 
             <div>
                 <BlogDialog />
+                {/* <BlogUpdate /> */}
             </div>
         </div>
     );
