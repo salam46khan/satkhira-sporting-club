@@ -60,7 +60,22 @@ const courseSchema = new mongoose.Schema({
     timestamps: true
 })
 
+const managerSchema = new mongoose.Schema({
+    name: String,
+    service_year: String,
+    image: String,
+    achive: String,
+    quality: String,
+    about: String,
+    link_fb: String,
+    link_ins: String,
+    link_x: String,
+},{
+    timestamps: true
+})
+
 
 export const Blog = mongoose?.models?.Blog || mongoose.model('Blog', blogSchema)
 export const User = mongoose?.models?.User || mongoose.model('User', userSchema)
 export const Course = mongoose?.models?.Course || mongoose.model('Course', courseSchema)
+export const Manager = mongoose?.models?.Manager || mongoose.model('Manager', managerSchema)

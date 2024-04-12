@@ -70,8 +70,8 @@ const Navbar = async () => {
                                         }
                                         <li>
                                             <form action={handleLogout}>
-                                                <button className='flex justify-between text-red-400'>
-                                                    Log out
+                                                <button className='flex justify-between items-center w-full text-red-400 gap-3'>
+                                                    <span>Log out</span>
                                                     <MdOutlineLogout className='' />
                                                 </button>
                                             </form>

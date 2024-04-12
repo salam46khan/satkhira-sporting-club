@@ -1,9 +1,11 @@
 'use server'
 
+import { route } from "next/navigation"
 import { signIn, signOut } from "./auth"
 import { Course, User } from "./models"
 import { connectDb } from "./utils"
 import bcrypt from 'bcryptjs'
+ 
 
 
 export const handleGithubLogin = async () => {
@@ -39,6 +41,7 @@ export const handleRegister = async (formData) => {
 
         await newUser.save()
         console.log('save to database');
+        route.push('/login')
     }
     catch(err){
         console.log(err);

@@ -6,7 +6,7 @@ const CourseContent = async () => {
     return (
         <div className="text-gray-200">
             <div className="divider divider-start divider-secondary">
-                <p className="font-bold text-3xl">Our Course: {courses.length}</p>
+                <p className="font-bold text-3xl">Our Course:</p>
             </div>
             <div className="bg-white/20 p-2 py-6 w-full rounded-md">
                 <div>search feald</div>
