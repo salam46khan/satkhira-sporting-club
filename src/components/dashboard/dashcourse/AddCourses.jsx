@@ -38,7 +38,7 @@ const AddCourses = () => {
 
     return (
         <div>
-            <button className="btn" onClick={() => document.getElementById('my_modal_4').showModal()}>open modal</button>
+            <button className="py-2 px-8 rounded bg-pink-400 text-white" onClick={() => document.getElementById('my_modal_4').showModal()}>Add Courses</button>
             <dialog id="my_modal_4" className="modal">
                 <div className="modal-box">
                     <form method="dialog">
