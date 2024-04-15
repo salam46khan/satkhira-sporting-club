@@ -74,8 +74,31 @@ const managerSchema = new mongoose.Schema({
     timestamps: true
 })
 
+const trainarSchema = new mongoose.Schema({
+    name: String,
+    prof: String,
+    image: String,
+    link_fb: String,
+    link_ins: String,
+    link_x: String,
+},{
+    timestamps: true
+})
+
+
+const playerSchema = new mongoose.Schema({
+    name: String,
+    position: String,
+    category: String,
+    image: String,
+},{
+    timestamps: true
+})
+
 
 export const Blog = mongoose?.models?.Blog || mongoose.model('Blog', blogSchema)
 export const User = mongoose?.models?.User || mongoose.model('User', userSchema)
 export const Course = mongoose?.models?.Course || mongoose.model('Course', courseSchema)
 export const Manager = mongoose?.models?.Manager || mongoose.model('Manager', managerSchema)
+export const Trainar = mongoose?.models?.Trainar || mongoose.model('Trainar', trainarSchema)
+export const Player = mongoose?.models?.Player || mongoose.model('Player', playerSchema)

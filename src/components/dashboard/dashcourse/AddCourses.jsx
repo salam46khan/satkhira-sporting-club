@@ -98,7 +98,7 @@ const AddCourses = () => {
                                 <textarea
                                     type="text"
                                     placeholder="Enter blog details"
-                                    className="bg-inherit focus:outline-none"
+                                    className="bg-inherit focus:outline-none w-full"
                                     name="details"
                                     onChange={(e) => setDetails(e.target.value)}
                                 />

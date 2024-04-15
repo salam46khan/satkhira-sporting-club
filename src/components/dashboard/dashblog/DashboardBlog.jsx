@@ -58,8 +58,6 @@ const DashboardBlog = ({ blogs }) => {
                                     <td>
                                         <div className="flex items-center gap-5">
 
-
-
                                             <Link href={`/dashboard/blogs/${blog._id}`}>
                                                 <button><FaRegEdit className="text-xl text-green-400" /></button>
                                             </Link>

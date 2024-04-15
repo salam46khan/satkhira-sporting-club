@@ -4,13 +4,13 @@ import Link from 'next/link';
 import { FaFacebookF } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 import { BsInstagram } from 'react-icons/bs';
-const Trainer = () => {
+const Trainer = ({trainar}) => {
     return (
         <div className="w-full max-w-[330px] p-3 rounded-md bg-white/20 hover:bg-white/30 duration-300">
-            <Image src={user} alt='trainers photo' height={200} width={200} className='w-full h-auto' />
+            <Image src={trainar?.image} alt='trainers photo' height={200} width={200} className='w-full h-auto' />
             <div className='pt-5'>
-                <h2 className='text-2xl font-semibold'>Pep Guardiola</h2>
-                <p className='text-pink-400'>football coach</p>
+                <h2 className='text-2xl font-semibold'>{trainar?.name}</h2>
+                <p className='text-pink-400'>{trainar?.prof}</p>
             </div>
             <div>
                 <div className='flex justify-end  gap-3 mt-3'>

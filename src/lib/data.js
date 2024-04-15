@@ -69,3 +69,24 @@ export const getManager = async () => {
     }
     return res.json()
 }
+export const getTrainar = async () => {
+    const res = await fetch ('http://localhost:3000/api/trainar', {
+        cache: 'no-store'
+    })
+
+    if(!res.ok){
+        throw new Error('somthing wrong')
+    }
+    return res.json()
+}
+
+export const getPlayer = async () => {
+    const res = await fetch ('http://localhost:3000/api/player', {
+        cache: 'no-store'
+    })
+
+    if(!res.ok){
+        throw new Error('somthing wrong')
+    }
+    return res.json()
+}

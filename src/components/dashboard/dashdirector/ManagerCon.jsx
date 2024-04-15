@@ -1,6 +1,7 @@
 import { getManager } from "@/lib/data";
 import Link from 'next/link'
 import { FaRegEdit } from "react-icons/fa";
+import Image from 'next/image'
 
 const ManagerCon = async () => {
     const manager = await getManager()
@@ -26,7 +27,9 @@ const ManagerCon = async () => {
                     <tbody>
                         {/* row 1 */}
                         <tr>
-                            <th>1</th>
+                            <th>
+                                <Image className="rounded-full" src={image} height={40} width={40} alt="photo" />
+                            </th>
                             <td>{name}</td>
                             <td>{service_year}</td>
                             <td>{achive}</td>

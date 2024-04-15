@@ -1,7 +1,9 @@
+import { getTrainar } from "@/lib/data";
 import Manager from "./Manager";
 import Trainer from "./Trainer";
 
-const Director = () => {
+const Director = async () => {
+    const trainar = await getTrainar()
     return (
         <div>
             <div>
@@ -12,9 +14,12 @@ const Director = () => {
                     <p className="font-bold text-xl">Our Trainers</p>
                 </div>
                 <div className="flex justify-center gap-3 flex-wrap">
+                    {
+                        trainar?.map(trainar => <Trainer key={trainar._id} trainar={trainar}></Trainer>)
+                    }
+                    {/* <Trainer />
                     <Trainer />
-                    <Trainer />
-                    <Trainer />
+                    <Trainer /> */}
                 </div>
             </div>
         </div>
